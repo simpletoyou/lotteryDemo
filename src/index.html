@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>区块链彩票</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <style>
+    .margin-top-3 {
+      margin-top: 3em;
+    }
+  </style>
+</head>
+<body class="container">
+<h1>区块链彩票演示程序</h1>
+<div id="this-phase-msg"></div>
+<div class="col-sm-5 margin-top-3">
+  <h2>本期投注信息</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>投注值</th>
+        <th>投注数</th>
+      </tr>
+      </thead>
+      <tbody id="bets-rows">
+      </tbody>
+    </table>
+  </div>
+  <div class="container-fluid">
+    <h2>输入投注序列组合</h2>
+    <div id="msg"></div>
+    <input type="text" id="bidSerial" placeholder="132表示1，3，2组合"/>
+    <br>
+    <br>
+    <input type="text" id="bidSum" placeholder="投注token数"/>
+    <br>
+    <br>
+    <a href="#" onclick="App.bidThisPhase()" class="btn btn-primary">投注</a>
+  </div>
+
+  <div class="container-fluid" id="admin-area" hidden="hidden">
+    <h2>管理员专区</h2>
+    <input type="text" id="sell-price" placeholder="Sell price"/>finney
+    <br>
+    <br>
+    <input type="text" id="buy-price" placeholder="buy price"/>finney
+    <br>
+    <br>
+    <a href="#" onclick="App.setPrice()" class="btn btn-primary">设置</a>
+    <br>
+    <br>
+    <br>
+    <a href="#" onclick="App.findWinner()" class="btn btn-primary">锁定并摇奖</a>
+    <br>
+    <br>
+    <a href="#" onclick="App.reOpen()" class="btn btn-primary">开始新的一期</a>
+  </div>
+</div>
+<div class="col-sm-offset-1 col-sm-4 margin-top-3">
+  <div class="row">
+    <h2>账号信息</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <tr>
+          <td>ETH 余额</td>
+          <td id="account-eth"></td>
+        </tr>
+        <tr>
+          <td>彩票token余额</td>
+          <td id="account-token"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row margin-top-3">
+    <h2>购买彩票Token</h2>
+    <div class="col-sm-12">
+      <div id="buyTokenNo-msg"></div>
+      <input type="text" id="buyTokenSum" class="col-sm-8" placeholder="输入支付的eth"/>&nbsp;
+      <a href="#" onclick="App.buyTokens()" class="btn btn-primary">购买</a>
+    </div>
+  </div>
+
+  <!--<div class="row margin-top-3">-->
+    <!--<h2>历史中奖纪录</h2>-->
+    <!--<div class="col-sm-12">-->
+      <!--<input type="text" id="voter-info", class="col-sm-8" placeholder="输入期号" />&nbsp;-->
+      <!--<a href="#" onclick="App.lookupHistory()" class="btn btn-primary">查询</a>-->
+      <!--<div class="voter-details row text-left">-->
+        <!--<div id="tokens-bought" class="margin-top-3 col-md-12"></div>-->
+        <!--<div id="votes-cast" class="col-md-12"></div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="index.js"></script>
+</html>
